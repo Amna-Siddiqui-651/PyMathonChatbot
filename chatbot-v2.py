@@ -110,6 +110,20 @@ while True:
         else:
             print("Chatbot: No number entered!")
 
+    elif user.startswith(("multiply", "mul", "multiply it")):
+        parts = user.split()
+        numbers = []
+        try:
+            for num in parts[1:]:
+                numbers.append(float(num))
+                result = numbers[0]
+                for i in numbers:
+                    result *= i
+            print(f"Chatbot: Result is {result}")
+            history.append(result)
+        except:
+            print("Chatbot: Invalid input! Please enter numbers only")
+
     elif user in ["mul","4","4.", "multiplication", "i want multiplication", "help me in multiplication", "i want mul numbers"]:
         numbers = []
         while True:
