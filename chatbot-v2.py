@@ -26,26 +26,38 @@ while True:
         print(f"Chatbot: {responses[user]}")
 
     elif user in ["help","menu"]:
-        print("----OPERATION LIST IS HERE----" \
-        "1. Sqrt" \
-        "2. Addition" \
-        "3. Subtraction" \
-        "4. Multiplication" \
-        "5. Division" \
-        "6. Floor Division" \
-        "7. Power" \
-        "8. Modulus" \
-        "9. Even/Odd" \
-        "10. Factorial" \
-        "11. Percentage" \
-        "12. Table"
-        "13. History")
+        print("----AVAILABLE COMMAND----" )
+        print("1. Square root")
+        print("2. Addition" )
+        print("3. Subtraction" )
+        print("4. Multiplication")
+        print("5. Division")
+        print("6. Floor Division")
+        print("7. Power")
+        print("8. Modulus")
+        print("9. Even/Odd")
+        print("10. Factorial")
+        print("11. Percentage")
+        print("12. Table")
+        print("13. History")
 
     elif user in ["sqrt", "1", "1.", "square root", "calculate the square root of numbers", "calculate the sqrt", "calculate the sqrt of numbers","calculate the square root of number"]:
         num = int(input("Enter number: "))
         result = math.sqrt(num)
         history.append(result)
         print(f"Chatbot: {result}")
+
+    elif user.startswith(("add", "sum", "plus")):
+        parts = user.split()
+        numbers = []
+        try:
+            for num in parts[1:]:
+                numbers.append(float(num))
+                result = sum(numbers)
+            print(f"Chatbot: Result is {result}")
+            history.append(result)
+        except:
+            print("Chatbot: Invalid Input! please enter numbers only")
 
     elif user in ["add", "2", "2.", "addition", "i want addition", "help me in addition", "i want add numbers"]:
         numbers = []
@@ -63,8 +75,21 @@ while True:
             print(f"Chatbot: Result of all additon is:{result}")
         else:
             print("Chatbot : No number entered!")
-        
 
+    elif user.startswith(("sub", "minus", "subtract it")):
+        parts = user.split()
+        numbers = []
+        try:
+            for num in parts[1:]:
+                numbers.append(float(num))
+                result = numbers[0]
+                for i in numbers[1:]:
+                    result -= i
+            print(f"Chatbot: Result is {result}")
+            history.append(result)
+        except:
+            print("Chatbot: Invalid input! Please enter numbers only")
+        
     elif user in ["sub","subb", "3","3.", "subtraction", "i want subtraction", "help me in subtraction", "i want sub numbers"]:
         numbers = []
         while True:
@@ -156,7 +181,7 @@ while True:
             history.append(fact)
         print(f"Chatbot: {fact}")
 
-    elif user in ["percentage","i want to calculate percentage", "11", "11."]:
+    elif user in ["percentage","i want to calculate percentage", "11", "11.", "percent"]:
         num1 = int(input("Enter Obtained marks here: "))
         num2 = int(input("Enter Total marks here: "))
         result = num1 * 100 / num2
@@ -167,12 +192,12 @@ while True:
         num = int(input("Enter number here: "))
         start = int(input("Enter Starting number here: "))
         end = int(input("Enter Ending number here: "))
+        print(f"Chatbot: ---Table of {num}---")
         for i in range(start, end+1):
             result = num*i
             history.append(result)
-            print(f"Chatbot: ---Table of {num}---")
             print(f"{num} * {i} = {result}")
-            print("------------------------")
+        print("------------------------")
 
     elif user in ["history", "let me check history", "13", "13."]:
         if history:
