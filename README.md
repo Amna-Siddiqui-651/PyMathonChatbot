@@ -1,22 +1,42 @@
 # PyMathonChatbot
-A Python-based interactive chatbot that performs basic mathematical operations and responds to user queries.
+
+A Python-based math chatbot that performs mathematical calculations and interacts with users through both manual and natural input commands.
 
 ## Features
-- Basic Arithmetic Operations (Add, Subtract, Multiply, Divide)
-- Power and Square Root calculations
-- Even/Odd checker
-- Multiplication Table generator
-- Factorial calculation
-- Simple chatbot responses
 
----
+- Addition
+- Subtraction
+- Multiplication
+- Division
+- Floor Division
+- Power Calculations
+- Modulus
+- Factorial
+- Square Root
+- Percentage Calculator
+- Even/Odd Checker
+- Tables Generator
+- Calculation History
+- Clear History
+- Natural Input Support
 
-## Tech Stack 
-- Python 3
-- Math Library
+## Example Commands
 
----
+add 5 10 15
+sub 20 5 2
+multiply 2 3 4
+history
+clear history
 
-## How to Run
-```bash
-python main.py
+## Technologies Used
+
+- Python
+- Git
+- GitHub
+
+## Future Improvements
+
+- GUI version
+- Smarter AI responses
+- File saving system
+- Voice support
